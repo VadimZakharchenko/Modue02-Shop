@@ -1,0 +1,13 @@
+$bg: #eee;
+
+body {
+    background-color: $bg;
+}
+.box {
+    &__svg {
+        fill: blueviolet;
+        &:hover {
+            fill: gold;
+        }
+    }
+}
