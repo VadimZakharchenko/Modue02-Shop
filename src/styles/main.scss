@@ -237,7 +237,6 @@ body {
     font-weight: 700;
     font-size: 8rem;
     margin: 0;
-    letter-spacing: 0.5px;
     line-height: 1;
     padding-left: 1rem;
     &__span {
@@ -271,6 +270,10 @@ body {
     text-decoration: none;
     border-radius: 3.8rem;
     display: inline-block;
+    &_max {
+        padding: 2.4rem 5.1rem;
+        margin-right: -1.3rem;
+    }
 }
 
 .offer {
@@ -282,12 +285,14 @@ body {
     padding-bottom: 12.8rem;
     &__text {
         margin-top: 6rem;
+        margin-left: 1rem;
         max-width: 700px;
     }
-    &__slider {
-        overflow: hidden;
-        padding-top: 9.4rem;
-    }
+}
+
+.slider {
+    overflow: hidden;
+    padding-top: 9rem;
 }
 
 .swiper {
@@ -295,33 +300,38 @@ body {
     &-slide {
         border: 1px solid rgba($green, .4);
         border-radius: 2rem;
-        padding: 4rem 3.7rem;
+        padding: 3rem 3.7rem 3.8rem;
         box-sizing: border-box;
-        height: 520px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
         z-index: 0;
+        &_white {
+            height: 521px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 4rem 3.7rem;
+            &:hover {
+                .swiper-slide__hover {
+                    height: 233px;
+                    opacity: 1;
+                }
+                &::after {
+                    content: '';
+                    background-color: rgba($white, .55);
+                    width: calc(100% - 4px);
+                    height: calc(100% - 4px);
+                    position: absolute;
+                    top: 2px;
+                    left: 2px;
+                    border-radius: 2rem;
+                    z-index: -1;
+                }
+            }
+        }
         &:hover {
             box-shadow: 0 0 0 2px rgba($green, .4) inset;
-            .swiper-slide__hover {
-                height: 233px;
-                opacity: 1;
-            }
-            &::after {
-                content: '';
-                background-color: rgba($white, .55);
-                width: calc(100% - 4px);
-                height: calc(100% - 4px);
-                position: absolute;
-                top: 2px;
-                left: 2px;
-                border-radius: 2rem;
-                z-index: -1;
-            }
         }
         &_milk {
             background-image: url(../images/milk.png);
@@ -337,6 +347,10 @@ body {
             font-size: 3rem;
             color: $green;
             margin-bottom: 0;
+            line-height: 1.2;
+            &_min {
+                letter-spacing: -0.8px;
+            }
         }
         &__hover {
             height: 0;
@@ -372,6 +386,37 @@ body {
                 background-repeat: no-repeat;
             }
         }
+        &__cover {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 322px;
+            text-align: right;
+        }
+        &__image {
+            width: 100%;
+            max-width: 351px;
+            height: 100%;
+            object-fit: contain;
+        }
+        &__description {
+            font-size: 1.8rem;
+            color: rgba($green, 0.7);
+            margin-top: 2rem;
+            margin-bottom: 0;
+            min-height: 55px;
+            max-width: 291px;
+            line-height: 1.5;
+        }
+        &__price {
+            font-size: 2.4rem;
+            margin-bottom: 3rem;
+        }
+        &__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
     }
     &-pagination {
         display: none;
@@ -394,5 +439,114 @@ body {
     &-button-prev {
         left: initial;
         right: 72px;
+    }
+}
+
+.counter {
+    display: flex;
+    margin-left: 1.3rem;
+    &__btn {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        border: 1px solid $green;
+        background-color: transparent;
+        padding: 0;
+        background-position: center center;
+        border-radius: 100%;
+    }
+    &__minus {
+        pointer-events: none;
+        background-image: url(../images/minus-counter.svg);
+        background-size: 20px 11px;
+        background-repeat: no-repeat;
+        opacity: .4;
+    }
+    &__plus {
+        background-image: url(../images/plus-counter.svg);
+        background-size: 20px 11px;
+        background-repeat: no-repeat;
+    }
+    &__input {
+        text-align: center;
+        font-size: 2.4rem;
+        width: 46px;
+        border: none;
+        padding: 0;
+    }
+}
+
+.about {
+    background-image: url(../images/about.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 3.8rem;
+    padding-bottom: 14.7rem;
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 7rem;
+    }
+    &__text {
+        margin-left: 13rem;
+        flex-basis: 614px;
+    }
+    &__list {
+        list-style: none;
+        display: flex;
+        gap: 8rem;
+        font-family: $font-cormorant;
+        font-style: italic;
+        font-size: 3rem;
+        margin: 0;
+        padding-left: 0;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &::before {
+            content: '';
+            width: 84px;
+            height: 84px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border: 1px solid rgba($green, 0.4);
+            border-radius: 100%;
+            margin-bottom: 1.5rem;
+        }
+        &:nth-child(1) {
+            &::before {
+                background-image: url(../images/fruits.svg);
+                background-size: 44px 41px;
+            }
+        }
+        &:nth-child(2) {
+            &::before {
+                background-image: url(../images/traditional.png);
+                background-size: 40px 40px;
+            }
+        }
+        &:nth-child(3) {
+            &::before {
+                background-image: url(../images/good.svg);
+                background-size: 45px 39px;
+            }
+        }
+    }
+}
+
+.trends {
+    background-image: url(../images/trends.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 4.2rem;
+    padding-bottom: 22rem;
+    &__text {
+        margin-top: 4rem;
+        margin-left: 1rem;
+        letter-spacing: -0.3px;
     }
 }
