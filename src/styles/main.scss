@@ -36,7 +36,6 @@ body {
     background-image: url(../images/background.png);
     background-size: cover;
     background-repeat: no-repeat;
-    overflow-x: hidden;
 }
 
 .header {
@@ -493,11 +492,12 @@ body {
         @media (max-width: $r_desk_full_1750) {
             width: 9.8rem;
             top: 110px;
-            right: -50px;
+        }
+        @media (max-width: $r_desk_hd) {
+            width: 7.8rem;
         }
         @media (max-width: $r_mob_500) {
-            top: 71px;
-            right: -38px;
+            top: 85px;
         }
     }
     &__cucumber {
@@ -517,7 +517,7 @@ body {
             width: 6.4rem;
             top: inherit;
             left: inherit;
-            right: -15px;
+            right: -13px;
             bottom: 198px;
         }
         @media (max-width: $r_mob_360) {
@@ -742,7 +742,7 @@ body {
             background-size: contain;
             padding: 3.4rem 3.7rem;
             @media (max-width: $r_desk_hd) {
-                height: 400px;
+                height: 401px;
             }
             @media (max-width: $r_mob_500) {
                 height: 236px;
@@ -795,6 +795,19 @@ body {
             @media (max-width: $r_mob_500) {
                 background-size: 66%;
                 background-position-x: 12px;
+            }
+        }
+        &_bread {
+            background-image: url(../images/fresh-bread.jpg);
+        }
+        &_vegetables-fruits {
+            background-image: url(../images/vegetables-fruits.jpg);
+        }
+        &_seafood {
+            background-image: url(../images/seafood.png);
+            @media (max-width: $r_desk) {
+                background-size: 70%;
+                background-position: top;
             }
         }
         &__title {
@@ -1161,6 +1174,7 @@ body {
 }
 
 .catalog {
+    overflow-x: hidden;
     &__list {
         margin-top: 8.5rem;
         margin-bottom: 5rem;
@@ -1830,9 +1844,6 @@ footer {
         }
         &:last-child {
             margin-bottom: 0;
-        }
-        &:hover {
-            color: $orange;
         }
     }
     &__contact {
