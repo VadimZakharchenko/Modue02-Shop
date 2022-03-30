@@ -751,7 +751,7 @@ body {
             }
             &:hover {
                 .swiper-slide__hover {
-                    height: 233px;
+                    height: auto;
                     opacity: 1;
                     @media (max-width: $r_mob_500) {
                         height: auto;
